@@ -13,6 +13,20 @@
 
 std::unordered_map<std::string, int> g_sessionlist;
 
+CUdpServer::CUdpServer(std::string host, uint16_t port, MessageRecvCb cb) {
+    _shutdown = false;
+    _host = host;
+    _port = port;
+    _msgcb = cb;
+}
+
+CUdpServer::~CUdpServer() {
+    _shutdown = true;
+    if (_loopth.joinable()) {
+        _loopth.join();
+    }
+}
+
 bool CUdpServer::Start()
 {
     int ret;

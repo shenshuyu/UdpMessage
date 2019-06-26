@@ -11,19 +11,9 @@ class CUdpServer {
 public:
     using MessageRecvCb = std::function<void(int listensock, endpoint_t peer, Message msg)>;
     CUdpServer() = delete;
-    //CUdpServer & operator=(CUdpServer &) = delete;
-    CUdpServer(std::string host, uint16_t port, MessageRecvCb cb) {
-        _shutdown = false;
-        _host = host;
-        _port = port;
-        _msgcb = cb;
-    }
-    ~CUdpServer() {
-        _shutdown = true;
-        if (_loopth.joinable()) {
-            _loopth.join();
-        }
-    }
+    CUdpServer & operator=(CUdpServer &) = delete;
+    CUdpServer(std::string host, uint16_t port, MessageRecvCb cb);
+    virtual ~CUdpServer();
     bool Start();
 private:
     void workLoop(int listensock);
