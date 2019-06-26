@@ -4,7 +4,7 @@
 #include <atomic>
 #include <mutex>
 
-#include "stub_message.h"
+#include "udp_message.h"
 #include "endpoint.h"
 
 class CUdpServer {

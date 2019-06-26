@@ -1,5 +1,5 @@
-#ifndef P2PCHAT_MESSAGE_H
-#define P2PCHAT_MESSAGE_H
+#ifndef UDP_MESSAGE_H
+#define UDP_MESSAGE_H
 
 #include <stdint.h>
 #include "endpoint.h"

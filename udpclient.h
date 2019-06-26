@@ -1,7 +1,7 @@
 #pragma once 
 #include <thread>
 #include <atomic>
-#include "stub_message.h"
+#include "udp_message.h"
 #include "endpoint.h"
 
 class CUdpClient {
